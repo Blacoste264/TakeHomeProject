@@ -3,9 +3,9 @@ var ListContainerView = Backbone.View.extend({
     el: ".takehome_body",
  
     initialize: function () {
-        _.bindAll(this, "render", "addOne", "addAll");
+
         this.collection.bind("reset", this.render);
-        this.collection.bind("add", this.addOne);
+        this.collection.bind("sort", this.sortStuff);
     },
  
     render: function () {
@@ -25,6 +25,17 @@ var ListContainerView = Backbone.View.extend({
         console.log("addOne")
         view = new ItemView({ model: model });
         $("ul", this.el).append(view.render());
-    }
+	},
+
+	searchFilter: function() {
+		this.searchFilter = e.target.value;
+		this.trigger('change:searchFilter');
+	},
+
+	events: {
+		"click #btn": "doStuff",
+		"keyup #searchbox" : "searchFilter"
+	},
+
  
 });
