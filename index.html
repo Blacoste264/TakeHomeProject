@@ -20,9 +20,19 @@
 
 
   <!-- Add your Backbone View templates here -->
-  <script type='text/template' id='ListContainerView'>
-    ListContainerView Placeholder Template
-  </script>
+
+
+    <div id="mainContainer"></div>
+    <script type="text/template" id="ListContainerView">
+        <ul>
+        </ul>
+    </script>
+    <script type="text/template" id="ItemView">
+		    <div>*******************************************************</div>
+            <p> hey popp </p>
+		    <div><%= id %> </div>
+		    <div><%= network %> </div>
+    </script>
   <!-- -->
 
 
@@ -31,6 +41,7 @@
   <script src="bb_models/ListItemModel.js" type="text/javascript"></script>
   <script src="bb_collections/ListItemCollection.js" type="text/javascript"></script>
   <script src="bb_views/ListContainerView.js" type="text/javascript"></script>
+  <script src="bb_views/ItemView.js" type="text/javascript"></script>
   <!-- -->
 
 
@@ -39,7 +50,7 @@
 		  // Instantiate and render your Backbone views from here
 		  $('.takehome_body').append( new ListContainerView({
 			  collection: new ListItemCollection()
-		  }).render().el);
+		  }).render());
 	  });
   </script>
 

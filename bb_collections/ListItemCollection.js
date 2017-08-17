@@ -9,6 +9,8 @@ var ListItemCollection = Backbone.Collection.extend({
 	initialize: function(models, options) {
 		this.total = this.TESTDATA.total;
 		this.reset(this.TESTDATA.posts);
+		console.log(this.models)
 	}
 
 });
+
